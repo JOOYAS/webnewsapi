@@ -1,20 +1,10 @@
-//getting date and displaying
-//var datestring = new Date();
-//const formattedDate = datestring.toLocaleDateString('en-UK');
-//console.log(formattedDate);
-//document.getElementById("date").textContent = formattedDate;
-
-
-
-
 const newscards = document.getElementById("articles");
 const corsheader = 'https://api.allorigins.win/get?url=';
-const newsapi = encodeURIComponent("https://newsapi.org/v2/everything?q=india&from=2024-04-29&to=2024-04-29&sortBy=popularity&apiKey=f913415ff5af44b5bc417d2bb5e6b7de");
+const newsapi = encodeURIComponent("https://newsapi.org/v2/everything?q=technology&from=2024-04-29&to=2024-04-29&sortBy=popularity&apiKey=f913415ff5af44b5bc417d2bb5e6b7de");
 fetch(corsheader + newsapi)
 .then(result => result.json())
 .then(data => {
     const cardTemplate = `
-        <a href="" class="news-link">
             <article class="card">
                 <div class="img-container">
                     <img src="" class="news-image" alt="">
@@ -25,7 +15,6 @@ fetch(corsheader + newsapi)
                     <p class="news-description"></p>
                 </div>
             </article>
-        </a>
         `;
 
 
@@ -36,7 +25,7 @@ fetch(corsheader + newsapi)
             newCard.innerHTML = cardTemplate.trim();
             const card = newCard.firstChild;
         
-            // Populate the card with data
+            // add data to each card
             const sourceName = card.querySelector('.news-source');
             const newsHeader = card.querySelector('.news-heading');
             const newsImage = card.querySelector('.news-image');
@@ -60,19 +49,3 @@ fetch(corsheader + newsapi)
             
 })
 .catch(error => console.log(error));
-
-
-
-
-//console.log(data.articles);
- //   var i = 5;
- //   console.log(i,data.articles[i])
- //   var News = data.articles[i];
- //   var SourceName = News.source.name;
-  //  var NewsHeader = News.title;
- //   var NewsImage = News.urlToImage;
- //   var NewsDescription = News.description
- //   sourcehtml.innerHTML = SourceName;
-  //  headerhtml.innerHTML = NewsHeader;
-   // reporthtml.innerHTML = NewsDescription;
-  //  image.src = NewsImage;

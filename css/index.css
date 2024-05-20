@@ -34,7 +34,6 @@ main {
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 60px;
-    height: inherit;
 }
 .section {
     padding: 1rem;
@@ -44,33 +43,25 @@ main {
 }
 .card {
     border-radius: 16px;
-    width: 100%;
+    
     height: min-content;
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: row-reverse;
     justify-content:space-between;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.176),0px 3px 6px rgba(0, 0, 0, 0.27);
+
+    flex: 1 1 100%;
 }
 .card:hover {
     box-shadow: 1px 1px 20px rgb(156, 156, 255),-1px -1px 20px rgb(156, 156, 255);
-}
-.card:first-child {
-    border-radius: 16px;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: row;
-}
-.card:first-child .img-container {
-    width: 50%;
 }
 .img-container {
     margin: 5px;
     width: 30%;
     min-width: 175px;
     max-width: 333px;
-   
+    
     overflow: hidden;
 }
 .news-image {
@@ -106,18 +97,28 @@ main {
 /*for mobile dis[plays*/
 @media (max-width: 767px) {
     main {
+        all: unset;
         padding: 10px;
         padding-top: 60px;
     }
+    .logo {
+        letter-spacing: 0.6em;
+        font-size: 24px;
+    }
     .img-container {
-        width: 20%;
+        min-width: 100px;
+        max-width: 130px;
         height: 130px;
         aspect-ratio: 1/1;
     }
+    .card {
+        width: 100%;
+    }
     .card-content {
+        all: initial;
         width: 80%;
         padding: .5rem 1rem;
-        height:max-content;
+        height: min-content;
     }
     .news-heading {
         color: black;
