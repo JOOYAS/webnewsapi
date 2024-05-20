@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: rgb(235, 235, 235)
+}
+#header {
+    width: 100vw;
+    padding: 8px 16px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 29, 29);
+    font-weight: 600;
+    font-size: 24px;
+    display: flex;
+    justify-content:space-between;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+    position: fixed;
+}
+.logo {
+    letter-spacing: 0.6em;
+    color: rgb(119, 156, 255);
+    font-size: 32px;
+    font-weight:bold ;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 60px;
+    height: inherit;
+}
+.section {
+    padding: 1rem;
+    display: flex;
+    flex-wrap:wrap;
+    gap: 1rem;
+}
+.card {
+    border-radius: 16px;
+    width: 100%;
+    height: min-content;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:space-between;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.176),0px 3px 6px rgba(0, 0, 0, 0.27);
+}
+.card:hover {
+    box-shadow: 1px 1px 20px rgb(156, 156, 255),-1px -1px 20px rgb(156, 156, 255);
+}
+.card:first-child {
+    border-radius: 16px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+}
+.card:first-child .img-container {
+    width: 50%;
+}
+.img-container {
+    margin: 5px;
+    width: 30%;
+    min-width: 175px;
+    max-width: 333px;
+   
+    overflow: hidden;
+}
+.news-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+.card-content {
+    width: 70%;
+    padding: .5rem 1rem;
+    height:max-content;
+}
+.news-source {
+    color: rgb(160, 160, 160);
+    padding-bottom: .5rem;
+    font-style: italic;
+}
+.news-heading {
+    font-weight: bold;
+    padding-bottom: 1rem;
+    color: black;
+}
+.news-description {
+    color: darkslategray;
+}
+.news-link {
+    all: unset;
+}
+
+
+/*for mobile dis[plays*/
+@media (max-width: 767px) {
+    main {
+        padding: 10px;
+        padding-top: 60px;
+    }
+    .img-container {
+        width: 20%;
+        height: 130px;
+        aspect-ratio: 1/1;
+    }
+    .card-content {
+        width: 80%;
+        padding: .5rem 1rem;
+        height:max-content;
+    }
+    .news-heading {
+        color: black;
+        font-size: 14px;
+    }
+    .news-description {
+        display: none;
+    }
+}
