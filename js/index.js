@@ -1,7 +1,6 @@
 const newscards = document.getElementById("articles");
-const corsheader = 'https://api.allorigins.win/get?url=';
-const newsapi = encodeURIComponent("https://newsapi.org/v2/everything?q=technology&sortBy=popularity&apiKey=f913415ff5af44b5bc417d2bb5e6b7de");
-fetch(corsheader + newsapi)
+const newsapi = "https://newsapi.org/v2/everything?q=technology&sortBy=popularity&apiKey=f913415ff5af44b5bc417d2bb5e6b7de";
+fetch(newsapi)
 .then(result => result.json())
 .then(data => {
     const cardTemplate = `
@@ -18,7 +17,7 @@ fetch(corsheader + newsapi)
         `;
 
 
-        JSON.parse(data.contents).articles.forEach(article => {
+        data.articles.forEach(article => {
         if(article.title && article.urlToImage) {
             // Clone the card template for each article
             const newCard = document.createElement('div');
