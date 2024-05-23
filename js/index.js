@@ -1,47 +1,55 @@
-const newscards = document.getElementById("articles");
-const newsapi = "https://newsapi.org/v2/everything?q=technology&sortBy=popularity&apiKey=f913415ff5af44b5bc417d2bb5e6b7de";
+//javascronly runs after html elents fully loaded
+document.addEventListener('DOMContentLoaded', () => {
 
-fetch(newsapi) 
-.then(result => result.json())
-.then(data => {
+    const newscards = document.getElementById("articles");
+    const newsapi = "https://newsapi.org/v2/everything?q=technology&sortBy=popularity&apiKey=f913415ff5af44b5bc417d2bb5e6b7de";
 
-    console.log(data);
-    data.articles.forEach(article => {
+    fetch(newsapi) 
+    .then(result => result.json())
+    .then(data => {
 
-        //news articles with no title and image will be rejected
-        if(article.title && article.urlToImage) {
+        console.log(data);
+        data.articles.forEach(article => {
 
-            //created a template for newscard
-            //without declaring data from api goes directly into html
-            const cardTemplate = `
-                <article class="card" >
-                    <div class="img-container">
-                        <img src="${article.urlToImage}" class="news-image" alt="an image potraits the content of article">
-                    </div>
-                    <div class="card-content">
-                        <span class="news-source">${article.source.name}</span>
-                        <h3 class="news-heading">${article.title}</h3>
-                        <p class="news-description">${article.description}</p>
-                    </div>
-                </article>
-            `;
-            
-            // pasting the card template for every article
-            const newCard = document.createElement('div');
-            newCard.innerHTML = cardTemplate.trim();
-            const card = newCard.firstChild;
-           
+            //news articles with no title and image will be rejected
+            if(article.title && article.urlToImage) {
 
-            // Append the card to the news cards section
-            newscards.appendChild(card); 
-            
-             //if imageurl not getting image pastes placeholder image
-            const newsImage = card.querySelector(".news-image");
-            newsImage.onerror = function() {
-                newsImage.src = "./images/placeholder-img.jpg"
+                
+                //created a template for newscard
+                //without declaring data from api goes directly into html
+                const cardTemplate = `
+                    <article class="card" role="link">
+                        <div class="img-container">
+                            <img src="${article.urlToImage}" class="news-image" alt="an image potraits the content of article">
+                        </div>
+                        <div class="card-content">
+                            <span class="news-source">${article.source.name}</span>
+                            <h3 class="news-heading">${article.title}</h3>
+                            <p class="news-description">${article.description}</p>
+                        </div>
+                    </article>
+                `;
+                
+                // Append the card to the news cards section
+                const newCard = document.createElement('div');
+                newCard.innerHTML = cardTemplate.trim();
+                const card = newCard.firstChild;
+                newscards.appendChild(card);
+
+                //when clicked on card open the original source webpage
+                card.addEventListener('click', () =>{
+                    const url = `${article.url}`;
+                    window.open(url, '_self');
+                });
+
+                //if imageurl not getting image pastes placeholder image
+                const newsImage = card.querySelector(".news-image");
+                newsImage.onerror = () => {
+                    newsImage.src = "./images/placeholder-img.jpg"
+                };
             };
-        }
-    });
-            
-})
-.catch(error => console.log(error));
+        });
+                
+    })
+    .catch(error => console.log(error));
+});
