@@ -5,6 +5,7 @@ fetch(newsapi)
 .then(result => result.json())
 .then(data => {
 
+    console.log(data);
     data.articles.forEach(article => {
 
         //news articles with no title and image will be rejected
