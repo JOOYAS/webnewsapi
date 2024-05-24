@@ -1,4 +1,4 @@
-//javascronly runs after html elents fully loaded
+//javascript only runs after html elents fully loaded
 document.addEventListener('DOMContentLoaded', () => {
 
     const newscards = document.getElementById("articles");
@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 //when clicked on card open the original source webpage
                 card.addEventListener('click', () =>{
-                    const url = `${article.url}`;
-                    window.open(url, '_self');
+                    //const url = `${article.url}`;
+                    //window.open(url, '_self');
                 });
 
                 //if imageurl not getting image pastes placeholder image
