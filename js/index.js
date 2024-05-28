@@ -2,14 +2,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const newscards = document.getElementById("articles");
-    const newsapi = "https://newsapi.org/v2/everything?q=technology&sortBy=popularity&apiKey=f913415ff5af44b5bc417d2bb5e6b7de";
+    const corsheader = 'https://api.allorigins.win/get?url=';
+    const newsapi = encodeURIComponent("https://newsapi.org/v2/everything?q=technology&apiKey=f913415ff5af44b5bc417d2bb5e6b7de");
 
-    fetch(newsapi) 
+    fetch(corsheader + newsapi) 
     .then(result => result.json())
     .then(data => {
 
         console.log(data);
-        data.articles.forEach(article => {
+        JSON.parse(data.contents).articles.forEach(article => {
 
             //news articles with no title and image will be rejected
             if(article.title && article.urlToImage) {
