@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const newscards = document.getElementById("articles");
     const corsheader = 'https://api.allorigins.win/get?url=';
-    const newsapi = encodeURIComponent("https://newsapi.org/v2/everything?q=technology&apiKey=f913415ff5af44b5bc417d2bb5e6b7de");
+    const newsapi = encodeURIComponent("https://newsapi.org/v2/everything?q=wonderful&language=en&apiKey=f913415ff5af44b5bc417d2bb5e6b7de");
 
     fetch(corsheader + newsapi) 
     .then(result => result.json())
