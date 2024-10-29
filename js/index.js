@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 newCard.innerHTML = cardTemplate.trim();
                 const card = newCard.firstChild;
                 newscards.appendChild(card);
-
+ 
                 //when clicked on card open the original source webpage
                 card.addEventListener('click', () =>{
-                    //const url = `${article.url}`;
-                    //window.open(url, '_self');
+                    const url = `${article.url}`;
+                    window.open(url, '_blank');
                 });
 
                 //if imageurl not getting image pastes placeholder image
